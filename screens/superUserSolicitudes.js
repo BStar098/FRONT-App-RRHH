@@ -56,6 +56,7 @@ const SuperUserSolicitudes = () => {
     dispatch(traerTodasNovedades(usuario));
   }, [estado]);
 
+ console.log(novedades[0].usuario.equipo.nombre)
   // STATES
   const [visible, setVisible] = useState(false);
   // const [estado, setEstado] = useState("Pendiente");
@@ -63,10 +64,10 @@ const SuperUserSolicitudes = () => {
   const headers = ["Nombre", "Equipo", "Estado", "Detalle"];
   const rows = novedades ? (
     novedades.map((novedad) => [
-      novedad.usuario.perfil.nombre,
-      novedad.usuario.equipo.nombre,
-      novedad.estado,
-      novedad.id,
+      novedad.usuario.perfil ?  novedad.usuario.perfil.nombre : 'XXXX' ,
+      novedad.usuario.equipo ?   novedad.usuario.equipo.nombre : 'XXXX' ,
+      novedad.estado ? novedad.estado : 'XXXX',
+      novedad.id ? novedad.id : "XXXX",
     ])
   ) : (
     <></>
