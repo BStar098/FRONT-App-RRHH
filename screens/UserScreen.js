@@ -7,15 +7,17 @@ import Loader from "../componentes/Loader";
 
 const User = () => {
   const dispatch = useDispatch();
-  const usuario = useSelector((estado) => estado.usuarios.infoDeUsuario);
+  const usuario = useSelector((estado) => estado.usuarios.datos.perfil);
   const datosLaborales = useSelector(
-    (estado) => estado.usuarios.datosLaborales
+    (estado) => estado.usuarios.datos.datosLaborales
   );
+  const usuarioId = useSelector((estado) => estado.usuarios.infoDeUsuario.id)
   useEffect(() => {
-    dispatch(traerDatosUsuario(usuario.id));
+    dispatch(traerDatosUsuario(usuarioId));
   }, []);
-
-  return datosLaborales.perfil && usuario.nombre ? (
+console.log(datosLaborales)
+console.log(usuarioId)
+  return datosLaborales && usuario.nombre ? (
     <SafeAreaView>
       <ScrollView>
         <Button
@@ -35,21 +37,21 @@ const User = () => {
           />
           <ListItem
             title="Domicilio"
-            meta={`${datosLaborales.perfil.domicilio}`}
+            meta={`${usuario.domicilio}`}
           />
           <ListItem
             title="Documento"
-            meta={`${datosLaborales.perfil.documento}`}
+            meta={`${usuario.documento}`}
           />
           <ListItem
             title="Telefono"
-            meta={`${datosLaborales.perfil.telefono}`}
+            meta={`${usuario.telefono}`}
           />
           <ListItem
             title="Fecha de nacimiento"
-            meta={`${datosLaborales.perfil.fechaDeNacimiento}`}
+            meta={`${usuario.fechaDeNacimiento}`}
           />
-          <ListItem title="Email" meta={`${datosLaborales.perfil.eMail}`} />
+          <ListItem title="Email" meta={`${usuario.eMail}`} />
           <Text
             style={{
               fontSize: 20,
@@ -62,38 +64,38 @@ const User = () => {
           </Text>
           <ListItem
             title="Fecha Ingreso"
-            meta={`${datosLaborales.datosLaborales.fechaDeIngreso}`}
+            meta={`${datosLaborales.fechaDeIngreso}`}
           />
 
           <ListItem
             title="Puesto"
-            meta={`${datosLaborales.datosLaborales.puesto}`}
+            meta={`${datosLaborales.puesto}`}
           />
           <ListItem
             title="Equipo"
-            meta={`${datosLaborales.datosLaborales.equipo}`}
+            meta={`${datosLaborales.equipo}`}
           />
           <ListItem
             title="Turno"
-            meta={`${datosLaborales.datosLaborales.turno}`}
+            meta={`${datosLaborales.turno}`}
           />
           <ListItem
             title="Oficina"
-            meta={`${datosLaborales.datosLaborales.oficina}`}
+            meta={`${datosLaborales.oficina}`}
           />
           <ListItem
             title="Dias Laborales"
-            meta={`${datosLaborales.datosLaborales.diasLaborales}`}
+            meta={`${datosLaborales.diasLaborales}`}
           />
 
           <ListItem
             title="Horarios Laborales"
-            meta={`${datosLaborales.datosLaborales.horarioLaboral}`}
+            meta={`${datosLaborales.horarioLaboral}`}
           />
 
           <ListItem
             title="Observaciones"
-            meta={`${datosLaborales.datosLaborales.observaciones}`}
+            meta={`${datosLaborales.observaciones}`}
           />
         </Box>
       </ScrollView>

@@ -79,7 +79,7 @@ const Registro = ({ navigation }) => {
       });
       
   };
-  console.log(Datos)
+
 
   const registroNombreHandler = (e) => {
     setRegistro({ ...Registro, nombre: e });
