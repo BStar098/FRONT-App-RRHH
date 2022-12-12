@@ -47,7 +47,7 @@ export const ficharIngreso = createAsyncThunk(
     );
     if (validacionIngreso) {
       return fechaHoraIdUsuario;
-    } else throw "La cantidad máxima de fichajes diarios es de 2(dos)";
+    } else throw `La cantidad máxima de fichajes diarios es de ${config.limiteAsistencias}`;
   }
 );
 
@@ -205,7 +205,7 @@ const usuarioReducer = createReducer(estadoInicial, {
     estado.ingresoDeUsuario = accion.payload;
   },
   [ficharIngreso.rejected]: (estado, accion) => {
-    throw "La cantidad máxima de fichajes diarios es de 2(dos) ingresos y 2(dos) salidas.";
+    throw `La cantidad máxima de fichajes diarios es de ${config.limiteAsistencias} ingresos y ${config.limiteAsistencias} salidas.`;
   },
   [resetearIngreso]: (estado) => {
     estado.ingresoDeUsuario = {};
