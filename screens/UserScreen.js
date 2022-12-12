@@ -15,8 +15,9 @@ const User = () => {
   useEffect(() => {
     dispatch(traerDatosUsuario(usuarioId));
   }, []);
-console.log(datosLaborales)
-console.log(usuarioId)
+
+console.log(usuario)
+
   return datosLaborales && usuario.nombre ? (
     <SafeAreaView>
       <ScrollView>

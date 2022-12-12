@@ -56,7 +56,7 @@ const SuperUserSolicitudes = () => {
     dispatch(traerTodasNovedades(usuario));
   }, [estado]);
 
- console.log(novedades[0].usuario.equipo.nombre)
+
   // STATES
   const [visible, setVisible] = useState(false);
   // const [estado, setEstado] = useState("Pendiente");
